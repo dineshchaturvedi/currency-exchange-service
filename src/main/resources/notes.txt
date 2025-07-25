@@ -1,0 +1,43 @@
+URL
+http://localhost:8000/currency-exchange/from/USD/to/INR
+
+
+http://localhost:8000/currency-exchange/from/USD/to/INR/Qunatity/10
+
+Response Structure
+{
+   "id":10001,
+   "from":"USD",
+   "to":"INR",
+   "conversionMultiple":65.00,
+   "environment":"8000 instance-id"
+}
+
+run instance on 8080
+.\mvnw spring-boot:run -Dspring-boot:run.arguments="--server.port=8080"
+
+run instance on 8081 open another terminal
+.\mvnw spring-boot:run -Dspring-boot:run.arguments="--server.port=8081"
+
+set SERVER_PORT=8001
+.\mvnw spring-boot:run
+
+The below command worked in power shell executed one line at a time
+$env:SERVER_PORT="801"
+.\mvnw spring-boot:run
+
+INSERT INTO CURRENCY_EXCHANGE (Id, CONVERSION_MULTIPLE, CURRENCY_FROM, CURRENCY_To, ENVIRONEMENT) VALUES
+(1, 1.0, 'USD', 'USD', 'DEV')
+
+Select * from CURRENCY_EXCHANGE 
+
+DELETE FROM CURRENCY_EXCHANGE;
+
+INSERT INTO CURRENCY_EXCHANGE (Id, CONVERSION_MULTIPLE, CURRENCY_FROM, CURRENCY_To, ENVIRONEMENT) VALUES
+(1, 81.0, 'USD', 'INR', ''),
+(2, 0.92, 'USD', 'EUR', ''),
+(3, 70.08, 'EUR', 'INR', ''),
+(4, 130.50, 'USD', 'JPY', ''),
+(5, 0.75, 'GBP', 'USD', ''),
+(6, 1.33, 'USD', 'GBP', ''),
+(7, 1.15, 'EUR', 'GBP', '');
